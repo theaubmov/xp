@@ -24,7 +24,7 @@ const thumbnail = computed(() => {
           <q-icon size="sm" name="fa-solid fa-ellipsis-vertical" />
         </div>
         <div class="col-4 q-px-xs">
-          <!-- 'http://ingress-gateway.gaiansolutions.com/content-service/v1.0/content/' +
+          <!-- 'http://ingress-gateway.hgrsolutions.com/content-service/v1.0/content/' +
                   item.thumbnail -->
           <q-img
             :src="thumbnail"

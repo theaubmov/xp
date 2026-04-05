@@ -5,7 +5,7 @@
             "name": "CURIOUS CREW INTERACTIVE EXPERIENCES",
             "description": " Curious Crew is a TV Show aimed at developing interest and passion among K-12 students on various STEM related topics. The show is in its 6th season and is produced by WKAR PBS station out of Lansing Michigan which is a wholly owned station of Michigan State University.",
             "status": "draft",
-            "tenant": "tenant@gaiansolutions.com",
+            "tenant": "tenant@hgrsolutions.com",
             "version": "1.0",
             "createdAt": "",
             "updatedAt": "",
@@ -96,7 +96,7 @@
             "name": "FIRST RESPONDER ALERTING",
             "description": "The best way to notify first responders is to implement alert notification tools and integrate them into your monitoring systems so that alerts can be automatically generated when an issue is detected.",
             "status": "draft",
-            "tenant": "tenant@gaiansolutions.com",
+            "tenant": "tenant@hgrsolutions.com",
             "version": "1.0",
             "createdAt": "",
             "updatedAt": "",
@@ -183,7 +183,7 @@
             "name": "FUNDRAISING",
             "description": "IATI is a global initiative to improve the transparency of development and humanitarian resources and their results for addressing poverty and crises.",
             "status": "draft",
-            "tenant": "tenant@gaiansolutions.com",
+            "tenant": "tenant@hgrsolutions.com",
             "version": "1.0",
             "createdAt": "",
             "updatedAt": "",
@@ -196,7 +196,7 @@
                 "IATI"
             ],
             "medias": [],
-            "thumbnail": "https://ingress-gateway.gaiansolutions.com/content-service/v1.0/content/download/19d63c5b-3c02-4605-bc22-12e50ade00fe",
+            "thumbnail": "https://ingress-gateway.hgrsolutions.com/content-service/v1.0/content/download/19d63c5b-3c02-4605-bc22-12e50ade00fe",
             "configuration": {
                 "Twitter": {
                     "isActive": false
@@ -270,7 +270,7 @@
             "name": "IOT EXPERIENCES",
             "description": "IATI – the International Aid Transparency Initiative – brings together governments, multilateral institutions, private sector and civil society organisations and others to increase the transparency and openness of resources flowing into developing countries.",
             "status": "draft",
-            "tenant": "tenant@gaiansolutions.com",
+            "tenant": "tenant@hgrsolutions.com",
             "version": "1.0",
             "createdAt": "",
             "updatedAt": "",
@@ -355,7 +355,7 @@
             "name": "GOOGLE CLASSROOMS",
             "description": "Google Classroom is a free blended learning platform developed by Google for educational institutions that aims to simplify creating, distributing, and grading assignments. ",
             "status": "draft",
-            "tenant": "tenant@gaiansolutions.com",
+            "tenant": "tenant@hgrsolutions.com",
             "version": "1.0",
             "createdAt": "",
             "updatedAt": "",
@@ -442,7 +442,7 @@
             "name": "PERSONALIZED WEATHER BULLETINS",
             "description": "The only weather app that understands that weather is subjective and unique to every individual. Mobius PWB provides personalized, hyperlocal weather reports that break down the weather in terms of the clothes you need to wear, whilst also providing you with all the nitty-gritty details.\n",
             "status": "draft",
-            "tenant": "tenant@gaiansolutions.com",
+            "tenant": "tenant@hgrsolutions.com",
             "version": "1.0",
             "createdAt": "",
             "updatedAt": "",
@@ -528,7 +528,7 @@
             "name": "DIGITAL SIGNAGE ",
             "description": "DIGITAL SIGNAGE ",
             "status": "draft",
-            "tenant": "tenant@gaiansolutions.com",
+            "tenant": "tenant@hgrsolutions.com",
             "version": "1.0",
             "createdAt": "",
             "updatedAt": "",
@@ -611,7 +611,7 @@
             "name": "TICKET BOOKING EXPERIENCE",
             "description": "TICKET BOOKING EXPERIENCE",
             "status": "draft",
-            "tenant": "tenant@gaiansolutions.com",
+            "tenant": "tenant@hgrsolutions.com",
             "version": "1.0",
             "createdAt": "",
             "updatedAt": "",
@@ -694,7 +694,7 @@
             "name": "MUSIC STREAMING",
             "description": "MUSIC STREAMING",
             "status": "draft",
-            "tenant": "tenant@gaiansolutions.com",
+            "tenant": "tenant@hgrsolutions.com",
             "version": "1.0",
             "createdAt": "",
             "updatedAt": "",
@@ -703,7 +703,7 @@
                 "MUSIC STREAMING"
             ],
             "medias": [],
-            "thumbnail": "https://ingress-gateway.gaiansolutions.com/content-service/v1.0/content/download/ffe98dbf-52af-4c43-a251-f6a8b1ccf165",
+            "thumbnail": "https://ingress-gateway.hgrsolutions.com/content-service/v1.0/content/download/ffe98dbf-52af-4c43-a251-f6a8b1ccf165",
             "configuration": {
                 "Twitter": {
                     "isActive": false

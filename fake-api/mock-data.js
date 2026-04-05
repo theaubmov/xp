@@ -36,7 +36,7 @@ function createMockSvg({
   subtitle = 'Local mock',
   accent = palette.cobalt,
   background = palette.slate,
-  eyebrow = 'Mobius'
+  eyebrow = 'HGR'
 }) {
   return `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="${escapeXml(
@@ -499,11 +499,28 @@ function createPageNode(page, id, x, y) {
   }
 }
 
+function createStartEdge({ id, source, target, sourceHandle, color }) {
+  return {
+    id,
+    source,
+    target,
+    sourceHandle,
+    animated: true,
+    style: {
+      stroke: color
+    },
+    labelBgStyle: {
+      fill: color
+    }
+  }
+}
+
 function createContextEdge({
   id,
   source,
   target,
   sourceHandle,
+  targetHandle,
   color,
   label
 }) {
@@ -512,6 +529,7 @@ function createContextEdge({
     source,
     target,
     sourceHandle,
+    targetHandle,
     type: 'context',
     animated: true,
     style: {
@@ -539,10 +557,19 @@ function createExperience({
   pages,
   platforms,
   dashboards,
-  gitSource = ''
+  gitSource = '',
+  status = 'draft',
+  subtitle = 'Connected audience journey',
+  category = 'Audience Experience',
+  tenant = 'engagements@hgr.one',
+  layout
 }) {
   const id = uuidv4()
   const timestamp = new Date(nowMinus(Math.floor(Math.random() * 18) + 1))
+  const pageById = Object.fromEntries(pages.map((page) => [page.id, page]))
+  const platformByTitle = Object.fromEntries(
+    platforms.map((platform) => [platform.title, platform])
+  )
   const elements = [
     {
       id: 'start-node',
@@ -550,58 +577,87 @@ function createExperience({
       label: name,
       sourcePosition: 'right',
       position: {
-        x: 0,
-        y: 0
+        x: layout?.start?.x ?? 0,
+        y: layout?.start?.y ?? 180
       },
       connectable: false,
       events: {}
     }
   ]
 
-  const layoutPlatforms = platforms.map((platform, index) =>
-    createPlatformNode(
+  const platformLayouts =
+    layout?.platforms ||
+    platforms.map((platform, index) => ({
+      title: platform.title,
+      x: 700,
+      y: index * 180,
+      input: 'left',
+      output: 'right'
+    }))
+
+  const pageLayouts =
+    layout?.pages ||
+    pages.map((page, index) => ({
+      id: page.id,
+      x: 300,
+      y: index * 220,
+      targetPlatform: platforms[index % platforms.length].title,
+      sourceHandle: slugify(page.details.configuration[0]?.title || 'Launch Experience')
+    }))
+
+  const layoutPlatforms = platformLayouts.map((platformLayout) => {
+    const platform = platformByTitle[platformLayout.title]
+    return createPlatformNode(
       `platform-${slugify(platform.title)}`,
       platform.title,
       platform.color,
-      280 + index * 210,
-      index % 2 === 0 ? -120 : 60
+      platformLayout.x,
+      platformLayout.y
     )
-  )
+  })
 
-  const layoutPages = pages.map((page, index) =>
-    createPageNode(page, `page-node-${page.id}`, 40 + index * 220, 240)
-  )
+  const layoutPages = pageLayouts.map((pageLayout) => {
+    const page = pageById[pageLayout.id]
+    return createPageNode(
+      page,
+      `page-node-${page.id}`,
+      pageLayout.x,
+      pageLayout.y
+    )
+  })
 
   elements.push(...layoutPlatforms, ...layoutPages)
 
-  const platformEdges = layoutPlatforms.map((platformNode) => ({
-    id: `edge-start-${platformNode.id}`,
-    source: 'start-node',
-    target: platformNode.id,
-    sourceHandle: 'right',
-    animated: true,
-    style: {
-      stroke: platformNode.data.configuration.channel.channelType === 'Dashboard'
-        ? palette.plum
-        : accent
-    },
-    labelBgStyle: {
-      fill: accent
-    }
-  }))
+  const platformEdges = layoutPlatforms.map((platformNode, index) => {
+    const platformLayout = platformLayouts[index]
+    return createStartEdge({
+      id: `edge-start-${platformNode.id}`,
+      source: 'start-node',
+      target: platformNode.id,
+      sourceHandle: platformLayout.startHandle || layout?.start?.handle || 'right',
+      color:
+        platformNode.data.configuration.channel.channelType === 'Dashboard'
+          ? palette.plum
+          : accent
+    })
+  })
 
-  const journeyEdges = layoutPages.map((pageNode, index) =>
-    createContextEdge({
-      id: `edge-${pageNode.id}-${layoutPlatforms[index % layoutPlatforms.length].id}`,
+  const journeyEdges = layoutPages.map((pageNode, index) => {
+    const pageLayout = pageLayouts[index]
+    const targetPlatformId = `platform-${slugify(pageLayout.targetPlatform)}`
+    const fallbackHandle = slugify(
+      pageNode.data.configuration[0]?.title || 'Launch Experience'
+    )
+    return createContextEdge({
+      id: `edge-${pageNode.id}-${targetPlatformId}`,
       source: pageNode.id,
-      target: layoutPlatforms[index % layoutPlatforms.length].id,
-      sourceHandle: slugify(
-        pageNode.data.configuration[0]?.title || 'Launch Experience'
-      ),
+      target: targetPlatformId,
+      sourceHandle: pageLayout.sourceHandle || fallbackHandle,
+      targetHandle: pageLayout.targetHandle,
       color: accent,
       label: 'One Time (Manually)'
     })
-  )
+  })
 
   elements.push(...platformEdges, ...journeyEdges)
 
@@ -620,7 +676,8 @@ function createExperience({
   }
 
   pages.forEach((page, index) => {
-    const targetKey = platforms[index % platforms.length].title
+    const targetKey =
+      pageLayouts[index]?.targetPlatform || platforms[index % platforms.length].title
     if (!configuration[targetKey]) {
       configuration[targetKey] = []
     }
@@ -634,9 +691,9 @@ function createExperience({
     id,
     name,
     description,
-    category: 'Mock Experience',
-    status: 'draft',
-    tenant: 'mobius@local.mock',
+    category,
+    status,
+    tenant,
     version: '1.0.0',
     createdAt: timestamp.toISOString(),
     updatedAt: timestamp.toISOString(),
@@ -646,13 +703,13 @@ function createExperience({
     details: {
       thumbnail: createSvgDataUrl({
         title: name,
-        subtitle: 'Local mock experience',
+        subtitle,
         accent
       })
     },
     thumbnail: createSvgDataUrl({
       title: name,
-      subtitle: 'Local mock experience',
+      subtitle,
       accent
     }),
     configuration,
@@ -915,8 +972,10 @@ function createMockState() {
     createExperience({
       name: 'Election Command Center',
       description:
-        'A local mock experience for election coverage, mobile prompts, and broadcast-ready follow ups.',
+        'A cross-channel experience for live election coverage, second-screen voter prompts, and newsroom follow-up messaging.',
       accent: palette.cobalt,
+      subtitle: 'Live coverage and viewer prompts',
+      status: 'publish',
       tags: ['News', 'Broadcast', 'Realtime'],
       pages: [pages[0], pages[1], pages[2]],
       platforms: [
@@ -924,46 +983,113 @@ function createMockState() {
         { title: 'Dashboard', color: palette.plum },
         { title: 'Email', color: palette.coral }
       ],
-      dashboards: [dashboards[0], dashboards[2]]
+      dashboards: [dashboards[0], dashboards[2]],
+      layout: {
+        start: { x: 20, y: 220, handle: 'right' },
+        pages: [
+          {
+            id: pages[0].id,
+            x: 320,
+            y: 20,
+            targetPlatform: 'NextGenTv',
+            sourceHandle: 'open-results'
+          },
+          {
+            id: pages[1].id,
+            x: 320,
+            y: 260,
+            targetPlatform: 'Dashboard',
+            sourceHandle: 'inspect-panel'
+          },
+          {
+            id: pages[2].id,
+            x: 320,
+            y: 500,
+            targetPlatform: 'Email',
+            sourceHandle: 'donate-now'
+          }
+        ],
+        platforms: [
+          { title: 'NextGenTv', x: 760, y: 40, startHandle: 'top' },
+          { title: 'Dashboard', x: 760, y: 280, startHandle: 'right' },
+          { title: 'Email', x: 760, y: 520, startHandle: 'bottom' }
+        ]
+      }
     }),
     createExperience({
       name: 'Storm Response Studio',
       description:
-        'A local mock journey for emergency alerts, operational dashboards, and responder routing.',
+        'An operational alerting journey that coordinates public safety updates, responder dashboards, and urgent mobile notifications.',
       accent: palette.jade,
+      subtitle: 'Emergency alerts and field coordination',
+      status: 'publish',
       tags: ['Weather', 'Alerts', 'Operations'],
       pages: [pages[1], pages[3]],
       platforms: [
         { title: 'Dashboard', color: palette.jade },
         { title: 'SMS', color: palette.gold }
       ],
-      dashboards: [dashboards[1]]
+      dashboards: [dashboards[1]],
+      layout: {
+        start: { x: 40, y: 170, handle: 'right' },
+        pages: [
+          {
+            id: pages[1].id,
+            x: 280,
+            y: 320,
+            targetPlatform: 'Dashboard',
+            sourceHandle: 'inspect-panel'
+          },
+          {
+            id: pages[3].id,
+            x: 760,
+            y: 220,
+            targetPlatform: 'SMS',
+            sourceHandle: 'confirm-receipt'
+          }
+        ],
+        platforms: [
+          { title: 'Dashboard', x: 560, y: 20, startHandle: 'top' },
+          { title: 'SMS', x: 1100, y: 170, startHandle: 'right' }
+        ]
+      }
     }),
     createExperience({
       name: 'Public Media Fundraiser',
       description:
-        'A mock donor journey with donation asks, recap mailers, and interactive conversion moments.',
+        'A membership campaign journey combining on-air prompts, donation reminders, and post-conversion stewardship messaging.',
       accent: palette.coral,
+      subtitle: 'Membership growth and conversion',
       tags: ['Fundraising', 'Membership', 'Email'],
       pages: [pages[2], pages[5]],
       platforms: [
         { title: 'Email', color: palette.coral },
         { title: 'Instagram', color: palette.blush }
       ],
-      dashboards: [dashboards[2]]
-    }),
-    createExperience({
-      name: 'Retail Momentum Loop',
-      description:
-        'A mock signage and mobile experience for location-aware promotions and performance tracking.',
-      accent: palette.gold,
-      tags: ['Retail', 'Signage', 'Mobile'],
-      pages: [pages[4], pages[5]],
-      platforms: [
-        { title: 'Signage', color: palette.gold },
-        { title: 'Instagram', color: palette.plum }
-      ],
-      dashboards: [dashboards[3]]
+      dashboards: [dashboards[2]],
+      layout: {
+        start: { x: 20, y: 220, handle: 'right' },
+        pages: [
+          {
+            id: pages[2].id,
+            x: 300,
+            y: 80,
+            targetPlatform: 'Email',
+            sourceHandle: 'donate-now'
+          },
+          {
+            id: pages[5].id,
+            x: 300,
+            y: 400,
+            targetPlatform: 'Instagram',
+            sourceHandle: 'start-lesson'
+          }
+        ],
+        platforms: [
+          { title: 'Email', x: 760, y: 110, startHandle: 'right' },
+          { title: 'Instagram', x: 760, y: 430, startHandle: 'right' }
+        ]
+      }
     })
   ]
 

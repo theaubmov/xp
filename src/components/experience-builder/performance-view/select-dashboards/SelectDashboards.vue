@@ -16,7 +16,7 @@ const router = useRouter()
 const dashboardStore = useDashboardStore()
 const experienceStore = useExperienceStore()
 
-const gaianThumbnail = defaultMockThumbnail
+const hgrThumbnail = defaultMockThumbnail
 
 async function searchDashboards() {
   const { value } = search
@@ -106,7 +106,7 @@ const isDisabled = computed(() => {
       >
         <q-card flat bordered>
           <q-img
-            :src="dashboard?.additionalProperties?.thumbnail || gaianThumbnail"
+            :src="dashboard?.additionalProperties?.thumbnail || hgrThumbnail"
             :ratio="16 / 9"
           />
           <q-card-section class="row justify-between align-center">

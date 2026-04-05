@@ -74,12 +74,12 @@ onMounted(() => {
     style="height: 70.5vh"
     v-if="!chartStore.onLoadingCharts"
   >
-    <div class="q-pa-md row q-col-gutter-lg items-center">
+    <div class="chart-grid q-pa-md row q-col-gutter-lg">
       <template v-for="chart in chartStore.charts" :key="chart.id">
-        <div class="col-3 q-mb-md">
-          <q-card flat bordered>
-            <q-card-section class="justify-between" horizontal>
-              <q-card-section class="col-5 flex flex-center" align="right">
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 q-mb-md">
+          <q-card flat bordered class="chart-card">
+            <q-card-section class="chart-card__header" horizontal>
+              <q-card-section class="chart-card__icon flex flex-center">
                 <q-icon
                   v-if="
                     !chart.chartType ||
@@ -128,19 +128,19 @@ onMounted(() => {
                   alt="area"
                 />
               </q-card-section>
-              <q-card-section class="q-pt-xs">
-                <div class="text-h5 q-mt-sm q-mb-xs">
-                  <q-item-label class="text-h6 limit">{{
-                    chart.name
-                  }}</q-item-label>
+              <q-card-section class="chart-card__content q-pt-xs">
+                <div class="q-mt-sm q-mb-xs">
+                  <q-item-label class="text-h6 limit">
+                    {{ chart.name }}
+                  </q-item-label>
                 </div>
-                <q-item-label caption>
+                <q-item-label class="chart-card__updated" caption>
                   Last updated
                   {{
                     fromMillisToDAteTimeString(chart.updatedTimeMs)
-                  }}</q-item-label
-                >
-                <div class="text-body1 text-weight-medium q-mt-md">
+                  }}
+                </q-item-label>
+                <div class="text-body1 text-weight-medium q-mt-md chart-card__provider">
                   <q-badge
                     class="text-uppercase"
                     outline
@@ -205,11 +205,92 @@ onMounted(() => {
   ></delete-modal>
 </template>
 <style lang="scss" scoped>
+.chart-grid {
+  width: 100%;
+  align-content: flex-start;
+}
+
+.chart-card {
+  height: 100%;
+}
+
+.chart-card :deep(.q-card__section--horiz) {
+  align-items: stretch;
+}
+
+.chart-card__header {
+  min-height: 172px;
+}
+
+.chart-card__icon {
+  flex: 0 0 128px;
+  min-width: 128px;
+  padding-right: 0;
+}
+
+.chart-card__icon img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.chart-card__content {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.chart-card__updated {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.chart-card__provider {
+  min-width: 0;
+}
+
 .limit {
-  width: 170px;
-  display: inline-block;
-  white-space: nowrap;
+  display: block;
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .chart-card__icon {
+    flex-basis: 112px;
+    min-width: 112px;
+  }
+}
+
+@media (max-width: 599px) {
+  .chart-card__header {
+    min-height: auto;
+    flex-direction: column;
+  }
+
+  .chart-card__icon {
+    flex-basis: auto;
+    min-width: 100%;
+    padding-bottom: 0;
+  }
+
+  .chart-card__icon img {
+    max-height: 96px;
+  }
+
+  .limit {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+
+.limit,
+.chart-card__updated {
+  overflow: hidden;
 }
 </style>

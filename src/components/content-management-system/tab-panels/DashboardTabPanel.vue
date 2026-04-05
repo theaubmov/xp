@@ -15,7 +15,7 @@ const deleteDialog = ref(false)
 const currentDeleteId = ref('')
 const $q = useQuasar()
 
-const gaianThumbnail = defaultMockThumbnail
+const hgrThumbnail = defaultMockThumbnail
 
 async function searchQueries() {
   const { value } = search
@@ -128,7 +128,7 @@ dashboardStore.getDashboards(0).then((data) => {
           <q-card class="q-mb-md">
             <q-img
               :src="
-                dashboard?.additionalProperties?.thumbnail || gaianThumbnail
+                dashboard?.additionalProperties?.thumbnail || hgrThumbnail
               "
               :ratio="16 / 9"
             />

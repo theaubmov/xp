@@ -112,7 +112,7 @@ export class EngagementContent {
     this.contentType = get(content, 'targetNode.data.details.contentType')
     this.baId = get(content, 'targetNode.data.id')
     this.userId = '1194'
-    this.serviceId = 'gaian'
+    this.serviceId = 'hgr'
     this.datasources = []
     this.contentConfig = {
       ['events']: getEvents(get(content, 'targetNode.data.details'), edges),

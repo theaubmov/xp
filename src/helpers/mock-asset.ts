@@ -19,7 +19,7 @@ export function createMockArtworkDataUrl({
   subtitle = 'Local mock',
   accent = '#0f4c81',
   background = '#0f172a',
-  eyebrow = 'Mobius'
+  eyebrow = 'HGR'
 }: MockArtworkOptions) {
   const svg = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="${escapeXml(
@@ -77,7 +77,7 @@ export function buildMockBase64ImageSource(
 }
 
 export const defaultMockThumbnail = createMockArtworkDataUrl({
-  title: 'Mobius Asset',
+  title: 'HGR Asset',
   subtitle: 'Served by the local mock layer',
   accent: '#0f766e'
 })

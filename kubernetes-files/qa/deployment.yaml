@@ -1,0 +1,79 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: experience-builder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: experience-builder
+  template:
+    metadata:
+      name: experience-builder
+      labels:
+        app: experience-builder
+        version: v1
+    spec:
+      containers:
+      - name: experience-builder
+        image: REG/IMAGE:TAG
+        resources:
+          requests:
+            memory: "3.6Gi"
+            cpu: "450m"
+          limits:
+            memory: "4Gi"
+            cpu: "500m"
+        imagePullPolicy: Always
+        volumeMounts:
+          - mountPath: /mnt/data/experience-builder/
+            name: efs-storage-claim        
+        ports:
+        - containerPort: 80
+        env:
+          - name: VERSION
+            value: "v1"
+      volumes:
+        - name: efs-storage-claim
+          persistentVolumeClaim:
+            claimName: efs-storage-claim            
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: experience-builder
+  labels:
+    app: experience-builder
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      name: http
+  selector:
+    app: experience-builder
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: experience-builder-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: experience-builder
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80

@@ -1,0 +1,38 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: experience-builder-fakeapi-route
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - istio-gateway
+  http:
+    - match:
+        - uri:
+            prefix: "/experience-builder/"
+      rewrite:
+          uri: "/"
+      route:
+        - destination:
+            host: experience-builder-fakeapi
+            subset: v1
+      corsPolicy:
+        allowOrigins:
+          - exact: "*"
+        allowMethods:
+          - POST
+          - GET
+          - PUT
+          - DELETE
+          - HEAD
+          - PATCH
+          - OPTIONS
+          - TRACE
+          - CONNECT
+        allowCredentials: false
+        allowHeaders:
+          - "*"
+        maxAge: "24h"
+#      timeout: 0.5s # - to enable if using Istio fault on callme-service route

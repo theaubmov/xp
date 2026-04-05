@@ -1,0 +1,91 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: experience-builder-fakeapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: experience-builder-fakeapi
+  template:
+    metadata:
+      name: experience-builder-fakeapi
+      labels:
+        app: experience-builder-fakeapi
+        version: v1
+    spec:
+      containers:
+      - name: experience-builder-fakeapi
+        image: REG/IMAGE:TAG
+        resources:
+          requests:
+            memory: "3.6Gi"
+            cpu: "450m"
+          limits:
+            memory: "4Gi"
+            cpu: "500m"
+        imagePullPolicy: Always
+        volumeMounts:
+          - mountPath: /mnt/data/experience-builder-fakeapi/
+            name: efs-storage-claim        
+        ports:
+        - containerPort: 8080
+        env:
+          - name: VERSION
+            value: "v1"
+      volumes:
+        - name: efs-storage-claim
+          persistentVolumeClaim:
+            claimName: efs-storage-claim            
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: experience-builder-fakeapi
+  labels:
+    app: experience-builder-fakeapi
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      name: http
+  selector:
+    app: experience-builder-fakeapi
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: experience-builder-fakeapi-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: experience-builder-fakeapi
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80
+
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: experience-builder-fakeapi-destination
+spec:
+  host: experience-builder-fakeapi
+  subsets:
+    - name: v1
+      labels:
+        version: v1

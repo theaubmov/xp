@@ -1,0 +1,16 @@
+FROM 064267045885.dkr.ecr.ap-south-1.amazonaws.com/dev:node-v8-base-image
+#FROM 15.206.17.129:5000/nginx-alpine:1
+
+WORKDIR /home/nodejs/app
+
+COPY . .
+
+RUN npm --version
+
+RUN npm install
+
+
+EXPOSE 8080
+
+
+ENTRYPOINT ["node", "/fake-api/server.js", "8080"]

@@ -1,0 +1,49 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: experience-builder-destination
+spec:
+  host: experience-builder
+  subsets:
+    - name: v1
+      labels:
+        version: v1
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: experience-builder-route
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - istio-gateway
+  http:
+    - match:
+        - uri:
+            prefix: "/experience-builder/"
+      rewrite:
+          uri: "/"
+      route:
+        - destination:
+            host: experience-builder
+            subset: v1
+      corsPolicy:
+        allowOrigins:
+          - exact: "*"
+        allowMethods:
+          - POST
+          - GET
+          - PUT
+          - DELETE
+          - HEAD
+          - PATCH
+          - OPTIONS
+          - TRACE
+          - CONNECT
+        allowCredentials: false
+        allowHeaders:
+          - "*"
+        maxAge: "24h"
+#      timeout: 0.5s # - to enable if using Istio fault on callme-service route

@@ -1,0 +1,777 @@
+{
+    "experiences": [
+        {
+            "id": "8c0197ab-7954-4c05-b53f-f5dfcbb20bc2",
+            "name": "CURIOUS CREW INTERACTIVE EXPERIENCES",
+            "description": " Curious Crew is a TV Show aimed at developing interest and passion among K-12 students on various STEM related topics. The show is in its 6th season and is produced by WKAR PBS station out of Lansing Michigan which is a wholly owned station of Michigan State University.",
+            "status": "draft",
+            "tenant": "tenant@gaiansolutions.com",
+            "version": "1.0",
+            "createdAt": "",
+            "updatedAt": "",
+            "gitSource": "",
+            "tags": [
+                "Education",
+                "Students",
+                "NextGenTV",
+                "Remotelearning",
+                "Kids",
+                "WKAR",
+                "Curious Crew",
+                "Interactivity"
+            ],
+            "medias": [],
+            "thumbnail": "https://image.pbs.org/video-assets/iKwtru7-asset-mezzanine-16x9-bZUPSSU.png",
+            "configuration": {
+                "Twitter": {
+                    "isActive": false
+                },
+                "Facebook": {
+                    "isActive": false
+                }
+            },
+            "experienceElements": [
+                {
+                    "type": "start-node",
+                    "dimensions": {
+                        "width": 150,
+                        "height": 72
+                    },
+                    "handleBounds": {
+                        "source": [
+                            {
+                                "id": "right",
+                                "position": "right",
+                                "x": 145.99998474121094,
+                                "y": 32.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "left",
+                                "position": "left",
+                                "x": -4,
+                                "y": 32.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "bottom",
+                                "position": "bottom",
+                                "x": 70.99998474121094,
+                                "y": 68.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "top",
+                                "position": "top",
+                                "x": 70.99998474121094,
+                                "y": -4,
+                                "width": 8,
+                                "height": 8
+                            }
+                        ]
+                    },
+                    "computedPosition": {
+                        "x": -477.0326431147735,
+                        "y": 53.732692827405714,
+                        "z": 0
+                    },
+                    "connectable": false,
+                    "id": "start-node",
+                    "label": "CURIOUS CREW INTERACTIVE EXPERIENCES",
+                    "sourcePosition": "right",
+                    "position": {
+                        "x": -477.0326431147735,
+                        "y": 53.732692827405714
+                    },
+                    "events": {},
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "id": "d9c4727d-e937-471f-9e17-3040068b08cb",
+            "name": "FIRST RESPONDER ALERTING",
+            "description": "The best way to notify first responders is to implement alert notification tools and integrate them into your monitoring systems so that alerts can be automatically generated when an issue is detected.",
+            "status": "draft",
+            "tenant": "tenant@gaiansolutions.com",
+            "version": "1.0",
+            "createdAt": "",
+            "updatedAt": "",
+            "gitSource": "",
+            "tags": [
+                "Alerting",
+                "First Responders",
+                "Campus Alerting",
+                "NextGenTV"
+            ],
+            "medias": [],
+            "thumbnail": "https://www.dhs.gov/sites/default/files/images/st/Wildland%20Fire.png",
+            "configuration": {
+                "Twitter": {
+                    "isActive": false
+                },
+                "Facebook": {
+                    "isActive": false
+                }
+            },
+            "experienceElements": [
+                {
+                    "type": "start-node",
+                    "dimensions": {
+                        "width": 150,
+                        "height": 54
+                    },
+                    "handleBounds": {
+                        "source": [
+                            {
+                                "id": "right",
+                                "position": "right",
+                                "x": 146,
+                                "y": 23.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "left",
+                                "position": "left",
+                                "x": -4,
+                                "y": 23.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "bottom",
+                                "position": "bottom",
+                                "x": 71,
+                                "y": 50.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "top",
+                                "position": "top",
+                                "x": 71,
+                                "y": -4,
+                                "width": 8,
+                                "height": 8
+                            }
+                        ]
+                    },
+                    "computedPosition": {
+                        "x": -228.25,
+                        "y": -122.25,
+                        "z": 1000
+                    },
+                    "connectable": false,
+                    "id": "start-node",
+                    "label": "FIRST RESPONDER ALERTING",
+                    "sourcePosition": "right",
+                    "position": {
+                        "x": -228.25,
+                        "y": -122.25
+                    },
+                    "events": {},
+                    "selected": true
+                }
+            ]
+        },
+        {
+            "id": "f5f3afd8-8999-428d-95de-bcd780a7cfa3",
+            "name": "FUNDRAISING",
+            "description": "IATI is a global initiative to improve the transparency of development and humanitarian resources and their results for addressing poverty and crises.",
+            "status": "draft",
+            "tenant": "tenant@gaiansolutions.com",
+            "version": "1.0",
+            "createdAt": "",
+            "updatedAt": "",
+            "gitSource": "",
+            "tags": [
+                "Fundraising",
+                "donation",
+                "nextgentv",
+                "ATSC3.0",
+                "IATI"
+            ],
+            "medias": [],
+            "thumbnail": "https://ingress-gateway.gaiansolutions.com/content-service/v1.0/content/download/19d63c5b-3c02-4605-bc22-12e50ade00fe",
+            "configuration": {
+                "Twitter": {
+                    "isActive": false
+                },
+                "Facebook": {
+                    "isActive": false
+                }
+            },
+            "experienceElements": [
+                {
+                    "type": "start-node",
+                    "dimensions": {
+                        "width": 150,
+                        "height": 36
+                    },
+                    "handleBounds": {
+                        "source": [
+                            {
+                                "id": "right",
+                                "position": "right",
+                                "x": 145.99998474121094,
+                                "y": 14,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "left",
+                                "position": "left",
+                                "x": -4,
+                                "y": 14,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "bottom",
+                                "position": "bottom",
+                                "x": 70.99998474121094,
+                                "y": 32,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "top",
+                                "position": "top",
+                                "x": 70.99998474121094,
+                                "y": -4.000007629394531,
+                                "width": 8,
+                                "height": 8
+                            }
+                        ]
+                    },
+                    "computedPosition": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "connectable": false,
+                    "id": "start-node",
+                    "label": "FUNDRAISING",
+                    "sourcePosition": "right",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "events": {}
+                }
+            ]
+        },
+        {
+            "id": "de83332f-d694-4ae5-bbe0-fb6838f50403",
+            "name": "IOT EXPERIENCES",
+            "description": "IATI – the International Aid Transparency Initiative – brings together governments, multilateral institutions, private sector and civil society organisations and others to increase the transparency and openness of resources flowing into developing countries.",
+            "status": "draft",
+            "tenant": "tenant@gaiansolutions.com",
+            "version": "1.0",
+            "createdAt": "",
+            "updatedAt": "",
+            "gitSource": "",
+            "tags": [
+                "Donation",
+                "IATI",
+                "NextGenTV"
+            ],
+            "medias": [],
+            "thumbnail": "https://www.zdnet.com/a/img/resize/cfc4b83ef647bebfba629ae1f5d215d412895eba/2020/09/28/6b225a1a-381a-4ceb-b13c-d2d314d41bd7/what-is-the-iot-everything-you-need-to-k-5f6cc13d5f60de4b41b7f3d4-1-sep-28-2020-16-19-38-poster.jpg?auto=webp&fit=cover&height=482&width=856",
+            "configuration": {
+                "Twitter": {
+                    "isActive": true
+                },
+                "Facebook": {
+                    "isActive": false
+                }
+            },
+            "experienceElements": [
+                {
+                    "type": "start-node",
+                    "dimensions": {
+                        "width": 150,
+                        "height": 36
+                    },
+                    "handleBounds": {
+                        "source": [
+                            {
+                                "id": "right",
+                                "position": "right",
+                                "x": 145.99998474121094,
+                                "y": 14,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "left",
+                                "position": "left",
+                                "x": -4,
+                                "y": 14,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "bottom",
+                                "position": "bottom",
+                                "x": 70.99998474121094,
+                                "y": 32,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "top",
+                                "position": "top",
+                                "x": 70.99998474121094,
+                                "y": -4.000007629394531,
+                                "width": 8,
+                                "height": 8
+                            }
+                        ]
+                    },
+                    "computedPosition": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "connectable": false,
+                    "id": "start-node",
+                    "label": "IOT EXPERIENCES",
+                    "sourcePosition": "right",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "events": {}
+                }
+            ]
+        },
+        {
+            "id": "d758d656-a88a-4d2b-9b11-3411d5b77f18",
+            "name": "GOOGLE CLASSROOMS",
+            "description": "Google Classroom is a free blended learning platform developed by Google for educational institutions that aims to simplify creating, distributing, and grading assignments. ",
+            "status": "draft",
+            "tenant": "tenant@gaiansolutions.com",
+            "version": "1.0",
+            "createdAt": "",
+            "updatedAt": "",
+            "gitSource": "",
+            "tags": [
+                "Googleclassrooms",
+                "NextGenTV",
+                "ATSC3.0",
+                "Education",
+                "Remote Learning "
+            ],
+            "medias": [],
+            "thumbnail": "https://cdn.mos.cms.futurecdn.net/yNbRqdBpDrCQMoP9NNfZ2d.jpg",
+            "configuration": {
+                "Twitter": {
+                    "isActive": false
+                },
+                "Facebook": {
+                    "isActive": false
+                }
+            },
+            "experienceElements": [
+                {
+                    "type": "start-node",
+                    "dimensions": {
+                        "width": 150,
+                        "height": 54
+                    },
+                    "handleBounds": {
+                        "source": [
+                            {
+                                "id": "right",
+                                "position": "right",
+                                "x": 145.99998474121094,
+                                "y": 23.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "left",
+                                "position": "left",
+                                "x": -4,
+                                "y": 23.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "bottom",
+                                "position": "bottom",
+                                "x": 70.99998474121094,
+                                "y": 50.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "top",
+                                "position": "top",
+                                "x": 70.99998474121094,
+                                "y": -4,
+                                "width": 8,
+                                "height": 8
+                            }
+                        ]
+                    },
+                    "computedPosition": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "connectable": false,
+                    "id": "start-node",
+                    "label": "GOOGLE CLASSROOMS",
+                    "sourcePosition": "right",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "events": {}
+                }
+            ]
+        },
+        {
+            "id": "b196f2c8-d5c2-40cb-b417-bc2d3d809ea1",
+            "name": "PERSONALIZED WEATHER BULLETINS",
+            "description": "The only weather app that understands that weather is subjective and unique to every individual. Mobius PWB provides personalized, hyperlocal weather reports that break down the weather in terms of the clothes you need to wear, whilst also providing you with all the nitty-gritty details.\n",
+            "status": "draft",
+            "tenant": "tenant@gaiansolutions.com",
+            "version": "1.0",
+            "createdAt": "",
+            "updatedAt": "",
+            "gitSource": "",
+            "tags": [
+                "Weather",
+                "personalized",
+                "nextgentv",
+                "atsc3.0"
+            ],
+            "medias": [],
+            "thumbnail": "https://media.wired.com/photos/62ad060183fe550206add755/4:3/w_1353,h_1015,c_limit/2022-Weather-Forecast-Science-GettyImages-1235749180.jpg",
+            "configuration": {
+                "Twitter": {
+                    "isActive": false
+                },
+                "Facebook": {
+                    "isActive": false
+                }
+            },
+            "experienceElements": [
+                {
+                    "type": "start-node",
+                    "dimensions": {
+                        "width": 150,
+                        "height": 54
+                    },
+                    "handleBounds": {
+                        "source": [
+                            {
+                                "id": "right",
+                                "position": "right",
+                                "x": 145.99998474121094,
+                                "y": 23.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "left",
+                                "position": "left",
+                                "x": -4,
+                                "y": 23.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "bottom",
+                                "position": "bottom",
+                                "x": 70.99998474121094,
+                                "y": 50.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "top",
+                                "position": "top",
+                                "x": 70.99998474121094,
+                                "y": -4,
+                                "width": 8,
+                                "height": 8
+                            }
+                        ]
+                    },
+                    "computedPosition": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "connectable": false,
+                    "id": "start-node",
+                    "label": "PERSONALIZED WEATHER BULLETINS",
+                    "sourcePosition": "right",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "events": {}
+                }
+            ]
+        },
+        {
+            "id": "bf17b108-e1e4-4f37-993a-12999ae12129",
+            "name": "DIGITAL SIGNAGE ",
+            "description": "DIGITAL SIGNAGE ",
+            "status": "draft",
+            "tenant": "tenant@gaiansolutions.com",
+            "version": "1.0",
+            "createdAt": "",
+            "updatedAt": "",
+            "gitSource": "",
+            "tags": [
+                "tags"
+            ],
+            "medias": [],
+            "thumbnail": "https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_1920,h_1080/https://signagelive.com/wp-content/uploads/2020/08/SignageCosts.png",
+            "configuration": {
+                "Twitter": {
+                    "isActive": false
+                },
+                "Facebook": {
+                    "isActive": false
+                }
+            },
+            "experienceElements": [
+                {
+                    "type": "start-node",
+                    "dimensions": {
+                        "width": 150,
+                        "height": 36
+                    },
+                    "handleBounds": {
+                        "source": [
+                            {
+                                "id": "right",
+                                "position": "right",
+                                "x": 145.99998474121094,
+                                "y": 14,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "left",
+                                "position": "left",
+                                "x": -4,
+                                "y": 14,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "bottom",
+                                "position": "bottom",
+                                "x": 70.99998474121094,
+                                "y": 32,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "top",
+                                "position": "top",
+                                "x": 70.99998474121094,
+                                "y": -4.000007629394531,
+                                "width": 8,
+                                "height": 8
+                            }
+                        ]
+                    },
+                    "computedPosition": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "connectable": false,
+                    "id": "start-node",
+                    "label": "DIGITAL SIGNAGE ",
+                    "sourcePosition": "right",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "events": {}
+                }
+            ]
+        },
+        {
+            "id": "e6312e27-aea9-4cab-9799-ff4293f7cb5e",
+            "name": "TICKET BOOKING EXPERIENCE",
+            "description": "TICKET BOOKING EXPERIENCE",
+            "status": "draft",
+            "tenant": "tenant@gaiansolutions.com",
+            "version": "1.0",
+            "createdAt": "",
+            "updatedAt": "",
+            "gitSource": "",
+            "tags": [
+                "tag"
+            ],
+            "medias": [],
+            "thumbnail": "https://cdn.mos.cms.futurecdn.net/rtKz3ipbmux3aR2gnNqKCC.jpg",
+            "configuration": {
+                "Twitter": {
+                    "isActive": false
+                },
+                "Facebook": {
+                    "isActive": false
+                }
+            },
+            "experienceElements": [
+                {
+                    "type": "start-node",
+                    "dimensions": {
+                        "width": 150,
+                        "height": 54
+                    },
+                    "handleBounds": {
+                        "source": [
+                            {
+                                "id": "right",
+                                "position": "right",
+                                "x": 145.99998474121094,
+                                "y": 23.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "left",
+                                "position": "left",
+                                "x": -4,
+                                "y": 23.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "bottom",
+                                "position": "bottom",
+                                "x": 70.99998474121094,
+                                "y": 50.00000762939453,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "top",
+                                "position": "top",
+                                "x": 70.99998474121094,
+                                "y": -4,
+                                "width": 8,
+                                "height": 8
+                            }
+                        ]
+                    },
+                    "computedPosition": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "connectable": false,
+                    "id": "start-node",
+                    "label": "TICKET BOOKING EXPERIENCE",
+                    "sourcePosition": "right",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "events": {}
+                }
+            ]
+        },
+        {
+            "id": "7ca2f915-72df-4761-bbc8-beaf23d8c8a1",
+            "name": "MUSIC STREAMING",
+            "description": "MUSIC STREAMING",
+            "status": "draft",
+            "tenant": "tenant@gaiansolutions.com",
+            "version": "1.0",
+            "createdAt": "",
+            "updatedAt": "",
+            "gitSource": "",
+            "tags": [
+                "MUSIC STREAMING"
+            ],
+            "medias": [],
+            "thumbnail": "https://ingress-gateway.gaiansolutions.com/content-service/v1.0/content/download/ffe98dbf-52af-4c43-a251-f6a8b1ccf165",
+            "configuration": {
+                "Twitter": {
+                    "isActive": false
+                },
+                "Facebook": {
+                    "isActive": false
+                }
+            },
+            "experienceElements": [
+                {
+                    "type": "start-node",
+                    "dimensions": {
+                        "width": 150,
+                        "height": 36
+                    },
+                    "handleBounds": {
+                        "source": [
+                            {
+                                "id": "right",
+                                "position": "right",
+                                "x": 145.99998474121094,
+                                "y": 14,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "left",
+                                "position": "left",
+                                "x": -4,
+                                "y": 14,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "bottom",
+                                "position": "bottom",
+                                "x": 70.99998474121094,
+                                "y": 32,
+                                "width": 8,
+                                "height": 8
+                            },
+                            {
+                                "id": "top",
+                                "position": "top",
+                                "x": 70.99998474121094,
+                                "y": -4.000007629394531,
+                                "width": 8,
+                                "height": 8
+                            }
+                        ]
+                    },
+                    "computedPosition": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "connectable": false,
+                    "id": "start-node",
+                    "label": "MUSIC STREAMING",
+                    "sourcePosition": "right",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "events": {}
+                }
+            ]
+        }
+    ],
+    "apps": []
+}

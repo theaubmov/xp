@@ -1,4 +1,4 @@
-# Mobius Local Mock
+# Mobius XP Project
 
 This project now runs against a fully local mock backend and local mock preview surfaces so you can explore the frontend without deployed Gaian services.
 

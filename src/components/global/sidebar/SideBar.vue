@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import icondegree from '@/assets/img/360-degrees.png'
-import icondegreeSmall from '@/assets/img/360-degrees-small.png'
 import icondegree360 from '@/assets/img/2277339.png'
 import type { MenuItem } from '@/interfaces/menu-item.interface'
 const items: MenuItem[] = [
@@ -67,25 +65,24 @@ const items: MenuItem[] = [
 ]
 </script>
 <template>
-  <!-- <q-drawer show-if-above :width="120" bordered class="white"> -->
-  <q-drawer show-if-above :width="120" bordered class="bg-sidebar">
+  <q-drawer show-if-above :width="94" bordered class="app-sidebar">
     <q-scroll-area class="fit">
-      <q-list>
+      <q-list class="shell-nav">
         <router-link
           v-for="item in items"
           :key="item.icon"
           :to="item.to"
-          style="text-decoration: none"
+          class="shell-nav-item"
         >
-          <div class="column q-py-md nav-link degree">
-            <div class="col self-center" v-if="item.title != '360° CX'">
-              <q-avatar size="40px" :icon="item.icon" />
-            </div>
-            <div class="col self-center degree" v-else>
-              <q-img :src="icondegree360" style="height: 30px; width: 30px" />
-            </div>
-            <div class="col self-center">
-              <span class="text-center">{{ item.title }}</span>
+          <div class="shell-link" :class="{ degree: item.title === '360° CX' }">
+            <div class="shell-link-inner">
+              <div v-if="item.title != '360° CX'" class="shell-icon-wrap">
+                <q-icon :name="item.icon" class="shell-icon" />
+              </div>
+              <div v-else class="shell-icon-wrap">
+                <q-img :src="icondegree360" class="degree-icon" fit="contain" />
+              </div>
+              <span class="shell-label">{{ item.title }}</span>
             </div>
           </div>
         </router-link>
@@ -95,30 +92,78 @@ const items: MenuItem[] = [
 </template>
 
 <style lang="scss">
-.nav-link {
-  color: black;
-  transition: 0.4s;
+.app-sidebar {
+  background: #eef1f4;
+  border-right: 1px solid rgba(15, 23, 42, 0.08);
 }
-.nav-link:hover {
-  background-color: $primary;
-  color: white;
+
+.shell-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.5rem 0.45rem;
 }
-.router-link-active .nav-link {
-  background-color: $primary;
-  i,
-  span {
-    color: white;
-  }
+
+.shell-nav-item {
+  text-decoration: none;
+  color: inherit;
 }
-.bg-sidebar {
-  background-image: linear-gradient(#00a0fe, #1de9de);
+
+.shell-link {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  color: rgba(17, 24, 39, 0.72);
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
-.degree:hover {
-  img {
-    filter: brightness(0) invert(1) !important;
-  }
+
+.shell-link-inner {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 0.22rem;
+  min-height: 72px;
+  padding: 0.45rem 0.25rem;
 }
-.router-link-active .nav-link .degree {
-  filter: brightness(0) invert(1) !important;
+
+.shell-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+}
+
+.shell-icon {
+  font-size: 1.15rem;
+}
+
+.degree-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.shell-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  line-height: 1.05;
+  text-align: center;
+  color: currentColor;
+}
+
+.shell-link:hover {
+  background: rgba(255, 255, 255, 0.68);
+  color: #111827;
+}
+
+.router-link-active .shell-link {
+  background: #ffffff;
+  color: #111827;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.07);
+}
+
+.router-link-active .degree-icon,
+.shell-link.degree:hover .degree-icon {
+  filter: brightness(0.2);
 }
 </style>

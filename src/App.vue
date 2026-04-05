@@ -14,11 +14,11 @@ const isEmbeddedRoute = computed(() => !!route.meta.embedded)
     <RouterView />
   </div>
   <div v-else>
-    <q-layout view="hHh Lpr lff" container style="height: 100vh">
+    <q-layout view="hHh Lpr lff" container class="app-shell">
       <base-header></base-header>
       <side-bar></side-bar>
       <q-page-container>
-        <q-page class="q-pa-sm">
+        <q-page class="app-page q-pa-sm">
           <RouterView />
         </q-page>
       </q-page-container>
@@ -26,6 +26,15 @@ const isEmbeddedRoute = computed(() => !!route.meta.embedded)
   </div>
 </template>
 
-<style>
+<style lang="scss">
 @import '@/assets/base.scss';
+
+.app-shell {
+  height: 100vh;
+  background: #fafafa;
+}
+
+.app-page {
+  background: #fafafa;
+}
 </style>

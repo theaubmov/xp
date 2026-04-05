@@ -7,7 +7,7 @@ import underConstruction from '@/assets/img/underConstruction.png'
     <div class="col my-card">
       <q-img :src="underConstruction" spinner-color="white" />
       <div class="q-mt-lg">
-        <p class="under-construction">Under Construction</p>
+        <p class="under-construction">Coming Soon</p>
       </div>
     </div>
   </div>

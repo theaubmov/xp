@@ -7,7 +7,7 @@ import underConstruction from '@/assets/img/underConstruction.png'
     <div class="col my-card">
       <q-img :src="underConstruction" spinner-color="white" />
       <div class="q-mt-lg">
-        <p class="under-construction">Coming Soon</p>
+        <p class="under-construction">This page is not available in demo mode</p>
       </div>
     </div>
   </div>
@@ -21,9 +21,9 @@ import underConstruction from '@/assets/img/underConstruction.png'
 .under-construction {
   font-family: 'Roboto', sans-serif !important;
   font-weight: 500;
-  font-size: 38px;
+  font-size: 30px;
   color: #0077d0;
   text-align: center;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.03em;
 }
 </style>

@@ -62,10 +62,19 @@ const isDisabled = computed(() => {
           </div>
 
           <div class="col-auto q-pa-sm">
-            <q-btn color="primary" flat label="save" :disable="isDisabled" />
+            <q-btn
+              color="primary"
+              flat
+              label="save"
+              :disable="isDisabled || true"
+            />
           </div>
           <div class="col-auto q-pa-sm">
-            <q-btn color="accent" label="save & edit" :disable="isDisabled" />
+            <q-btn
+              color="accent"
+              label="save & edit"
+              :disable="isDisabled || true"
+            />
           </div>
         </div>
       </q-card-section>

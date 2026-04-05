@@ -27,6 +27,7 @@ const nodeProps = defineProps<CustomNodeProps>()
         color="primary"
         icon="fa-solid fa-plus"
         class="absolute"
+        disable
       >
         <q-menu class="shadow-1">
           <q-list style="min-width: 100px">

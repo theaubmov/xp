@@ -386,7 +386,7 @@ onMounted(async () => {
             color="primary"
             label="Add filter"
             @click="selectedAddFilter = 'source-filter'"
-            :disable="isAddSourceFilterDisabled"
+            :disable="isAddSourceFilterDisabled || true"
             flat
             dense
           />
@@ -414,7 +414,12 @@ onMounted(async () => {
                 size="xs"
               />
             </q-btn>
-            <q-btn flat rounded @click="deleteFilter(index, 'source')">
+            <q-btn
+              flat
+              rounded
+              disable
+              @click="deleteFilter(index, 'source')"
+            >
               <q-icon
                 class="cursor-pointer"
                 name="fa-solid fa-trash"
@@ -464,7 +469,7 @@ onMounted(async () => {
             color="primary"
             label="Add filter"
             @click="selectedAddFilter = 'destination-filter'"
-            :disable="isAddDestinationFilterDisabled"
+            :disable="isAddDestinationFilterDisabled || true"
             flat
             dense
           />
@@ -492,7 +497,12 @@ onMounted(async () => {
                 size="xs"
               />
             </q-btn>
-            <q-btn flat rounded @click="deleteFilter(index, 'destination')">
+            <q-btn
+              flat
+              rounded
+              disable
+              @click="deleteFilter(index, 'destination')"
+            >
               <q-icon
                 class="cursor-pointer"
                 name="fa-solid fa-trash"

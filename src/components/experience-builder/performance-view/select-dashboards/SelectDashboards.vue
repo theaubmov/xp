@@ -91,6 +91,7 @@ const isDisabled = computed(() => {
           class="text-weight-bold text-body1"
           color="primary"
           flat
+          disable
         />
       </div>
     </div>

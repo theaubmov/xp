@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+const demoModeMutationMessage =
+  'Demo mode is active. Add, create, and delete actions are disabled.'
+
 const props = defineProps(['modelValue', 'title'])
 const emit = defineEmits(['update:modelValue', 'on-delete', 'on-close'])
 
@@ -34,9 +37,13 @@ const value = computed({
           flat
           label="Delete"
           color="red"
+          disable
           @click="emit('on-delete')"
         />
       </q-card-actions>
+      <q-card-section class="text-caption text-grey-7 q-pt-none">
+        {{ demoModeMutationMessage }}
+      </q-card-section>
     </q-card>
   </q-dialog>
 </template>

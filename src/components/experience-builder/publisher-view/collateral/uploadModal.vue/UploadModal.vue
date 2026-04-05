@@ -121,7 +121,7 @@ const onUpload = async () => {
               color="accent"
               label="upload"
               :loading="isLoading"
-              :disable="!imgUploadFile"
+              :disable="!imgUploadFile || true"
             />
           </div>
         </div>

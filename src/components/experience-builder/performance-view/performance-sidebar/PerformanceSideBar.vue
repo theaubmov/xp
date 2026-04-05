@@ -42,6 +42,7 @@ const active = computed({
         color="accent"
         class="q-pa-sm full-width"
         size="sm"
+        disable
       >
         <q-icon name="fa-solid fa-plus" />
       </q-btn>

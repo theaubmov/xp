@@ -109,7 +109,7 @@ function getPreviewUrl(id: string) {
 <template>
   <div class="row q-py-md items-center justify-between">
     <div class="col-auto">
-      <q-btn flat>
+      <q-btn flat disable>
         <q-icon left size="xs" name="fa-solid fa-filter" />
         <div class="col-auto" style="line-height: 0">Add Filters</div>
       </q-btn>

@@ -7,6 +7,8 @@ import useRules from '@/composition/rules'
 const experienceStore = useExperienceStore()
 const { requiredField } = useRules()
 const $q = useQuasar()
+const demoModeMutationMessage =
+  'Demo mode is active. Add, create, and delete actions are disabled.'
 
 const loading = ref(false)
 const experienceForm = ref<QForm>()
@@ -73,6 +75,14 @@ function showNotifs(isAdded: boolean, message: string) {
         </div>
         <q-separator />
 
+        <q-banner
+          v-if="true"
+          class="bg-blue-1 text-primary q-mt-md q-mx-md"
+          rounded
+        >
+          {{ demoModeMutationMessage }}
+        </q-banner>
+
         <q-form ref="experienceForm" class="q-gutter-md">
           <div class="row q-px-md q-pt-md">
             <div class="col-8 q-py-sm">
@@ -125,7 +135,7 @@ function showNotifs(isAdded: boolean, message: string) {
               <q-btn
                 color="accent"
                 label="New Experience"
-                :disable="isDisabled"
+                :disable="isDisabled || true"
                 :loading="loading"
                 @click="onSubmit"
               />

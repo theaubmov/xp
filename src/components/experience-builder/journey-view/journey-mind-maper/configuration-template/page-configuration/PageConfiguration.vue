@@ -126,7 +126,12 @@ onMounted(() => {
                   size="xs"
                 />
               </q-btn>
-              <q-btn flat rounded @click="deleteCustomEvent(index)">
+              <q-btn
+                flat
+                rounded
+                disable
+                @click="deleteCustomEvent(index)"
+              >
                 <q-icon
                   class="cursor-pointer"
                   name="fa-solid fa-trash"
@@ -139,6 +144,7 @@ onMounted(() => {
             <q-btn
               color="accent"
               label="Create New Event"
+              disable
               @click="selectedAddItem = 'event-item'"
             />
           </div>

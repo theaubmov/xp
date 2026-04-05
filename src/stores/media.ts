@@ -4,6 +4,8 @@ import { apiUrlGain } from '@/plugins/api'
 import { concat } from 'lodash'
 import { defineStore } from 'pinia'
 
+const DEMO_MODE_MUTATION_STATUS = 403
+
 export const useMediaStore = defineStore({
   id: 'media-store',
   state: () => ({
@@ -56,8 +58,7 @@ export const useMediaStore = defineStore({
       return response.data.files
     },
     async deleteMedia(id: string): Promise<number> {
-      const response = await apiUrlGain.media.deleteMedia(id)
-      return response.status
+      return DEMO_MODE_MUTATION_STATUS
     }
   }
 })

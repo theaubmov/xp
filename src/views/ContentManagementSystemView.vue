@@ -96,10 +96,15 @@ function showModal(key: string) {
         </q-tabs>
       </div>
       <div class="col-auto q-pl-xl">
-        <q-btn v-if="tab == 'media'" color="accent" @click="showModal(tab)">
+        <q-btn
+          v-if="tab == 'media'"
+          color="accent"
+          disable
+          @click="showModal(tab)"
+        >
           <q-icon left size="xs" name="fa-solid fa-upload" />
         </q-btn>
-        <q-btn v-else color="accent" @click="showModal(tab)">
+        <q-btn v-else color="accent" disable @click="showModal(tab)">
           <q-icon left size="xs" name="fa-solid fa-plus" />
         </q-btn>
       </div>

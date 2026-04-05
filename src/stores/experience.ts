@@ -16,6 +16,10 @@ import { find, forEach } from 'lodash'
 import { defineStore } from 'pinia'
 import { useUploaderStore } from './uploader'
 
+const DEMO_MODE_MUTATION_STATUS = 403
+const DEMO_MODE_MUTATION_MESSAGE =
+  'Demo mode is active. Add, create, and delete actions are disabled.'
+
 export const useExperienceStore = defineStore({
   id: 'experience',
   state: () => ({
@@ -116,6 +120,8 @@ export const useExperienceStore = defineStore({
       this.currentExperienceMedias = response.data['medias']
     },
     async createExperience(dto: ExperienceDTO): Promise<Experience> {
+      throw new Error(DEMO_MODE_MUTATION_MESSAGE)
+
       const thumbnailsResponse = await useUploaderStore().uploadCollateral(
         dto.file
       )
@@ -186,8 +192,7 @@ export const useExperienceStore = defineStore({
       return response.data
     },
     async deleteExperience(id: string): Promise<number> {
-      const response = await apiUrlGain.experiencev2.deleteExperienceByID(id)
-      return response.status
+      return DEMO_MODE_MUTATION_STATUS
     }
   }
 })

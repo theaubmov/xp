@@ -90,6 +90,7 @@ onMounted(() => {
               <q-btn
                 flat
                 round
+                disable
                 size="10px"
                 color="grey-8"
                 icon="fa-solid fa-trash"

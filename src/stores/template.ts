@@ -7,6 +7,8 @@ import { apiUrlGain } from '@/plugins/api'
 import { map } from 'lodash'
 import { defineStore } from 'pinia'
 
+const DEMO_MODE_MUTATION_STATUS = 403
+
 export const useTemplateStore = defineStore({
   id: 'template-store',
   state: () => ({
@@ -66,8 +68,7 @@ export const useTemplateStore = defineStore({
       return response.data.templates
     },
     async deleteTemplate(id: string): Promise<number> {
-      const response = await apiUrlGain.templates.deleteTemplate(id)
-      return response.status
+      return DEMO_MODE_MUTATION_STATUS
     }
   }
 })

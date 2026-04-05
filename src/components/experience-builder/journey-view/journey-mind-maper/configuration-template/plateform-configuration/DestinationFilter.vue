@@ -202,7 +202,7 @@ onMounted(async () => {
         v-else
         label="Add Filter"
         color="accent"
-        :disable="isDisabled"
+        :disable="isDisabled || true"
         @click="save"
       />
     </div>

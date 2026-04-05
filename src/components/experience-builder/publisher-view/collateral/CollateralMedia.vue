@@ -18,7 +18,12 @@ function showDefault() {
         <div class="col q-my-md q-px-sm justifiy-start">
           <h6 class="q-my-none">Collateral</h6>
         </div>
-        <q-btn label="Upload File" color="primary" @click="showDefault" />
+        <q-btn
+          label="Upload File"
+          color="primary"
+          disable
+          @click="showDefault"
+        />
       </div>
       <div class="scroll" style="height: 26vh">
         <div class="row items-center">

@@ -7,6 +7,8 @@ import { apiUrlGain } from '@/plugins/api'
 import { map } from 'lodash'
 import { defineStore } from 'pinia'
 
+const DEMO_MODE_MUTATION_STATUS = 403
+
 export const useDashboardStore = defineStore({
   id: 'dashboard',
   state: () => ({
@@ -75,8 +77,7 @@ export const useDashboardStore = defineStore({
       return response.data?.dashboards || []
     },
     async deleteDashboard(id: string): Promise<number> {
-      const response = await apiUrlGain.dashboard.deleteDashboard(id)
-      return response.status
+      return DEMO_MODE_MUTATION_STATUS
     }
   }
 })

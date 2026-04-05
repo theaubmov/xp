@@ -2,6 +2,8 @@ import type { Chart } from '@/interfaces/chart.interface'
 import { apiUrlGain } from '@/plugins/api'
 import { defineStore } from 'pinia'
 
+const DEMO_MODE_MUTATION_STATUS = 403
+
 export const useChartStore = defineStore({
   id: 'charts',
   state: () => ({
@@ -22,8 +24,7 @@ export const useChartStore = defineStore({
       return response.data.data
     },
     async deleteChart(id: string): Promise<number> {
-      const response = await apiUrlGain.chart.deleteChart(id)
-      return response.status
+      return DEMO_MODE_MUTATION_STATUS
     }
   }
 })

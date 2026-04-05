@@ -8,8 +8,11 @@ import 'quasar/src/css/index.sass'
 
 import App from './App.vue'
 import router from './router'
+import { applySeoGuards } from './config/seo'
 
 const app = createApp(App)
+
+applySeoGuards()
 
 app.use(Quasar, {
   plugins: {

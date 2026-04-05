@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import router from '@/router'
 import { useExperienceStore } from '@/stores/experience'
 import { useQuasar } from 'quasar'
 import { ref } from 'vue'
 
 const $q = useQuasar()
+const demoModeMutationMessage =
+  'Demo mode is active. Add, create, and delete actions are disabled.'
 
 const items: any[] = [
   { action: 'delete', icon: 'fa-solid fa-trash' }
@@ -16,6 +17,14 @@ const experienceStore = useExperienceStore()
 const deleteDialog = ref(false)
 
 async function executeAction(item: any) {
+  if (item.action === 'delete') {
+    $q.notify({
+      type: 'warning',
+      message: demoModeMutationMessage
+    })
+    return
+  }
+
   switch (item.action) {
     case 'delete':
       deleteDialog.value = true
@@ -28,22 +37,10 @@ async function executeAction(item: any) {
 }
 
 async function confirmDelete() {
-  experienceStore
-    .deleteExperience(experienceStore.currentExperience.id)
-    .then((resp) => {
-      if (resp == 200) {
-        router.push('/')
-        $q.notify({
-          type: 'positive',
-          message: 'Experience Deleted Successfully'
-        })
-      } else {
-        $q.notify({
-          type: 'negative',
-          message: 'Oops, Try again'
-        })
-      }
-    })
+  $q.notify({
+    type: 'warning',
+    message: demoModeMutationMessage
+  })
 }
 </script>
 <template>
@@ -54,6 +51,7 @@ async function confirmDelete() {
         round
         size="sm"
         :icon="item.icon"
+        disable
         @click="executeAction(item)"
       />
     </div>
@@ -74,6 +72,7 @@ async function confirmDelete() {
           flat
           label="Delete"
           color="red"
+          disable
           @click="confirmDelete()"
         />
       </q-card-actions>

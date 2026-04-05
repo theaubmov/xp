@@ -67,7 +67,7 @@ const experienceStore = useExperienceStore()
     </div> -->
     <q-space></q-space>
     <div class="col-auto q-pl-xl">
-      <q-btn color="accent" :to="{ name: 'new-experience' }">
+      <q-btn color="accent" :to="{ name: 'new-experience' }" disable>
         <q-icon left size="xs" name="fa-solid fa-plus" />
       </q-btn>
     </div>

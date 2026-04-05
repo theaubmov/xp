@@ -312,7 +312,7 @@ onMounted(async () => {
         v-if="!event"
         label="Add Custom Event"
         color="accent"
-        :disable="isDisabled"
+        :disable="isDisabled || true"
         @click="save"
       />
       <q-btn

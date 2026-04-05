@@ -160,7 +160,7 @@ function isAudio(filename: string) {
               color="accent"
               label="upload"
               :loading="isLoading"
-              :disable="!uploadFile"
+              :disable="!uploadFile || true"
             />
           </div>
         </div>

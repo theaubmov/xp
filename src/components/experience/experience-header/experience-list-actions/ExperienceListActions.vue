@@ -9,7 +9,13 @@ const items: string[] = [
 <template>
   <div class="row">
     <div class="col" v-for="item in items" :key="item">
-      <q-btn flat round size="sm" :icon="item" />
+      <q-btn
+        flat
+        round
+        size="sm"
+        :icon="item"
+        :disable="item === 'fa-solid fa-trash' || item === 'fa-solid fa-plus'"
+      />
     </div>
   </div>
 </template>

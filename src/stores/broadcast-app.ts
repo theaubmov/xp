@@ -7,6 +7,8 @@ import { apiUrlGain } from '@/plugins/api'
 import { map } from 'lodash'
 import { defineStore } from 'pinia'
 
+const DEMO_MODE_MUTATION_STATUS = 403
+
 export const useBroadcastAppStore = defineStore({
   id: 'broadcast-app',
   state: () => ({
@@ -73,8 +75,7 @@ export const useBroadcastAppStore = defineStore({
       return response.data.data
     },
     async deleteBroadCastApp(id: string): Promise<number> {
-      const response = await apiUrlGain.broadcastApp.deleteBroadCastApp(id)
-      return response.status
+      return DEMO_MODE_MUTATION_STATUS
     }
   }
 })

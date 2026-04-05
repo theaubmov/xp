@@ -1,0 +1,62 @@
+[build]
+  command = "npm run build:netlify"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet, noimageindex"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/engagements-web/*"
+  to = "/.netlify/functions/api/engagements-web/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/tf-web/*"
+  to = "/.netlify/functions/api/tf-web/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/content-service/*"
+  to = "/.netlify/functions/api/content-service/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/xcode-service/*"
+  to = "/.netlify/functions/api/xcode-service/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/iam-service/*"
+  to = "/.netlify/functions/api/iam-service/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/template-service/*"
+  to = "/.netlify/functions/api/template-service/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/broadcasterappstore-service/*"
+  to = "/.netlify/functions/api/broadcasterappstore-service/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/health"
+  to = "/.netlify/functions/api/health"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

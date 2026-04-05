@@ -623,9 +623,13 @@ server.post('/iam-service/oauth/token', (req, res) => {
   })
 })
 
-server.listen(8080, () => {
-  console.log('Mobius local mock API running on http://localhost:8080')
-})
+if (require.main === module) {
+  server.listen(8080, () => {
+    console.log('Mobius local mock API running on http://localhost:8080')
+  })
+}
+
+module.exports = server
 
 function collectRawBody(req) {
   return new Promise((resolve, reject) => {

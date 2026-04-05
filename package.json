@@ -5,6 +5,7 @@
     "fake-api": "nodemon --watch ./fake-api ./fake-api/server.js",
     "dev:mock": "run-p fake-api dev",
     "dev": "vite --port 5000",
+    "build:netlify": "vite build",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "build-only": "vite build",
@@ -20,6 +21,7 @@
     "luxon": "^3.0.1",
     "pinia": "^2.0.14",
     "quasar": "^2.7.5",
+    "serverless-http": "^3.2.0",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16"
   },

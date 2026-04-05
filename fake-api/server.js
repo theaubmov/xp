@@ -18,6 +18,12 @@ const middlewares = jsonServer.defaults()
 let state = createMockState()
 
 server.use(function (req, res, next) {
+  if (req.url.startsWith('/.netlify/functions/api/')) {
+    req.url = req.url.replace('/.netlify/functions/api', '') || '/'
+  } else if (req.url === '/.netlify/functions/api') {
+    req.url = '/'
+  }
+
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(
     'Access-Control-Allow-Methods',
